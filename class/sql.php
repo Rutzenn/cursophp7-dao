@@ -8,7 +8,6 @@ class Sql extends PDO {
 
 		$this->conn = new PDO("mysql:host=localhost;dbname=dbphp7", "root", "");
 
-
 	}
 
 	private function setParams($statement, $parameters = array()){
@@ -26,14 +25,14 @@ class Sql extends PDO {
 
 	}
 
-	public function query($rawQuery/*query bruta*/, $params = array()){
+	public function query($rawQuery, $params = array()){
 
 		$stmt = $this->conn->prepare($rawQuery);
 
 		$this->setParams($stmt, $params);
 
 		$stmt->execute();
-
+ 
 		return $stmt;
 
 		}
@@ -47,7 +46,5 @@ class Sql extends PDO {
 		}
 
 	}
-
-
 
 ?>
